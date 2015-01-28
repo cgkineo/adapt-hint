@@ -1,0 +1,15 @@
+{
+  "name": "adapt-component-spec",
+  "version": "0.0.0",
+  "homepage": "https://github.com/cgkineo/adapt-component-spec",
+  "authors": [
+    "Kirsty Hames <kirsty.hames@kineo.com>"
+  ],
+  "description": "display component specification",
+  "main": "/js/adapt-component-spec.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "license": "GPLv3"
+}

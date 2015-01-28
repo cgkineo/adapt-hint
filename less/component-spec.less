@@ -1,0 +1,65 @@
+.component-spec {
+
+	.component-spec-show-detail-button {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 1;
+		padding: 5px;
+		margin: 10px;
+		background-color: @background-color;
+		border-radius: 50%;
+		box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+		.no-touch & {
+		        &:hover {
+		            background-color: darken(@background-color, 10%);
+		    }
+		}
+	}
+
+	.component-spec-detail {
+		display: none;
+		width: 200px;
+		background-color: @background-color;
+		position: absolute;
+		top: 28px;
+		right: 28px;
+		box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+
+		-webkit-transform-origin: top right;
+		-moz-transform-origin: top right;
+		-ms-transform-origin: top right;
+		transform-origin: top right;
+	}
+
+	.component-spec-detail-inner {
+	}
+
+	.component-spec-detail-item-title {
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	.component-spec-detail-item-support {
+	}
+
+	.component-spec-detail-item-notes {
+	}
+
+	.component-spec-detail-item-title-inner {
+		padding: 20px 20px 5px;
+	}
+
+	.component-spec-detail-item-support-inner {
+		padding: 5px 20px 5px;
+	}
+
+	.component-spec-detail-item-notes-inner {
+		padding: 5px 20px 20px;
+	}
+
+	.browser-support {
+		background-color: darken(@background-color, 20%);
+	}
+   
+}
