@@ -1,7 +1,7 @@
 adapt-component-spec
 ====================
 
-display component specification
+Display component specification. 
 
 
 Exmaple JSON
@@ -17,6 +17,20 @@ Exmaple JSON
         "title": "Accessibility Support",
         "supported": "AA",
         "notes": "Accessibility notes"
-    }
+    },
+    "_additionalInformation": {
+        "title": "Additional Information",
+        "_additionalInformationItems": [
+            {
+                "information": "Information item 1"
+            },
+            {
+                "information": "Information item 2"
+            },
+            {
+                "information": "Information item 3"
+            }
+        ]
+    }   
 }
 ```
