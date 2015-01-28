@@ -19,7 +19,7 @@
 
 	.component-spec-detail {
 		display: none;
-		width: 200px;
+		width: 240px;
 		background-color: @background-color;
 		position: absolute;
 		top: 28px;
@@ -32,7 +32,8 @@
 		transform-origin: top right;
 	}
 
-	.component-spec-detail-inner {
+	.component-spec-detail-item-inner {
+		padding: 20px;
 	}
 
 	.component-spec-detail-item-title {
@@ -40,26 +41,20 @@
 		font-weight: bold;
 	}
 
-	.component-spec-detail-item-support {
-	}
-
-	.component-spec-detail-item-notes {
-	}
-
-	.component-spec-detail-item-title-inner {
-		padding: 20px 20px 5px;
-	}
-
 	.component-spec-detail-item-support-inner {
-		padding: 5px 20px 5px;
+		padding: 10px 0;
 	}
 
-	.component-spec-detail-item-notes-inner {
-		padding: 5px 20px 20px;
+	.component-spec-additonal-inforamtion-item {
+		padding-top: 10px;
 	}
 
-	.browser-support {
+	.browser-support,
+	.additional-information {
+		background-color: @background-color;
+	}
+
+	.accessibility-support {
 		background-color: darken(@background-color, 20%);
-	}
-   
+	}   
 }
