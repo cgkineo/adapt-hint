@@ -18,12 +18,7 @@ define(function(require) {
 		className: 'component-spec',
 
 		initialize: function() {
-			this.preRender();
 			this.render();
-		},
-
-		preRender: function() {
-
 		},
 
 		render: function() {
@@ -35,6 +30,7 @@ define(function(require) {
 
 		postRender: function() {
 			this.setLayout();
+			this.listenTo(Adapt, 'remove', this.remove);
 		},
 
 		setLayout: function() {
