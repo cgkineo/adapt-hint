@@ -31,6 +31,7 @@ define(function(require) {
 		postRender: function() {
 			this.setLayout();
 			this.listenTo(Adapt, 'remove', this.remove);
+			this.listenTo(Adapt, 'component-spec-detail:open', this.checkIfShouldClose);
 		},
 
 		setLayout: function() {
@@ -63,6 +64,7 @@ define(function(require) {
 				});
 				$specDetail.addClass('detail-open');
 				this.$('.component-spec-show-detail-button').removeClass('icon-question').addClass('icon-cross');
+				Adapt.trigger('component-spec-detail:open', this.model.get('_id'));
 			} else {
 				$specDetail.velocity({
 					scaleX: 0,
@@ -73,6 +75,22 @@ define(function(require) {
 				});
 				$specDetail.removeClass('detail-open');
 				this.$('.component-spec-show-detail-button').removeClass('icon-cross').addClass('icon-question');
+			}
+		},
+
+		checkIfShouldClose: function(id) {
+			if (this.model.get('_id') !== id) {
+				var $detail = $('.' + this.model.get('_id') + " .component-spec-detail");
+				var $button = $('.' + this.model.get('_id') + " .component-spec-show-detail-button");
+				$detail.velocity({
+					scaleX: 0,
+					scaleY: 0
+				}, {
+					duration: 300,
+					display: 'none'
+				});
+				$detail.removeClass('detail-open');
+				$button.removeClass('icon-cross').addClass('icon-question');
 			}
 		}
 	});
