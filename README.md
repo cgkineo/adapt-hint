@@ -4,7 +4,7 @@ adapt-component-spec
 Display component specification. 
 
 
-Exmaple JSON
+Example JSON
 
 ```
 "_componentSpec": {
