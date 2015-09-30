@@ -1,4 +1,4 @@
-// add to component.json
+// add to component in component.json
 
 "_componentSpec": {
     "_browserSupport": {

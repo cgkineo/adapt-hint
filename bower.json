@@ -1,15 +1,15 @@
 {
   "name": "adapt-component-spec",
-  "version": "0.0.0",
-  "homepage": "https://github.com/cgkineo/adapt-component-spec",
-  "authors": [
-    "Kirsty Hames <kirsty.hames@kineo.com>"
-  ],
-  "description": "display component specification",
+  "version": "2.0.0",
+  "framework": "^2.0.0",
+  "displayName" : "Component Spec",
+  "component" : "component-spec",
+  "description": "An extension that adds a small, clickable icon to a component that displays additional information.",
   "main": "/js/adapt-component-spec.js",
   "keywords": [
     "adapt-plugin",
     "adapt-extension"
   ],
-  "license": "GPLv3"
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/cgkineo/adapt-component-spec"
 }
