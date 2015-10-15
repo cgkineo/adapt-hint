@@ -1,0 +1,88 @@
+.hint-extension {
+	.hint-extension-button {
+		background-color: @button-color;
+		border-radius: 50%;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+		color: @button-text-color;
+		padding: 5px;
+		position: absolute;
+		right: -10px;
+		top: 0;
+		z-index: 2;
+
+		.no-touch &:hover {
+			background-color: @button-color-hover;
+			color: @button-text-color-hover;
+		}
+
+		@media all and (max-width: @device-width-small) {
+			right: 0;
+		}
+
+		.dir-rtl & {
+			left: -10px;
+			right: inherit;
+
+			@media all and (max-width: @device-width-small) {
+				left: 0;
+				right: inherit;
+			}
+		}
+	}
+
+	.hint-extension-widget {
+		background-color: @background-color;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+		display: none;
+		position: absolute;
+		right: 0;
+		top: 10px;
+		width: 250px;
+		z-index: 1;
+
+		-webkit-transform-origin: top right;
+		-moz-transform-origin: top right;
+		-ms-transform-origin: top right;
+		transform-origin: top right;
+
+		.ie8 & {
+			border: 2px solid darken(@background-color, 10%);
+		}
+
+		.dir-rtl & {
+			left: 0;
+			right: inherit;
+
+			-webkit-transform-origin: top left;
+			-moz-transform-origin: top left;
+			-ms-transform-origin: top left;
+			transform-origin: top left;
+		}
+	}
+
+	.hint-extension-item {
+		&:nth-child(even) {
+			background-color: darken(@background-color, 10%);
+		}
+
+		.ie8 & {
+			&.item-1,
+			&.item-3 {
+				background-color: darken(@background-color, 10%);
+			}
+		}
+	}
+
+	.hint-extension-item-inner {
+		padding: 10px;
+	}
+
+	.hint-extension-item-title {
+		font-size: 16px;
+		font-weight: 700;
+	}
+
+	.hint-extension-item-body {
+		padding-top: 10px;
+	}
+}

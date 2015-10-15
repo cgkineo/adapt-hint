@@ -1,0 +1,24 @@
+<div class="hint-extension-inner">
+
+	<a href="#" class="hint-extension-button icon icon-question"></a>
+
+	<div class="hint-extension-widget">
+		{{#each _hint-extension._items}}
+		<div class="hint-extension-item item-{{@index}}">
+			<div class="hint-extension-item-inner">
+				<div class="hint-extension-item-title">
+					<div class="hint-extension-item-title-inner">
+						{{{title}}}
+					</div>
+				</div>
+				<div class="hint-extension-item-body">
+					<div class="hint-extension-item-body-inner">
+						{{{body}}}
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+
+</div>

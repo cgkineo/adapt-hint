@@ -1,28 +1,14 @@
 // add to component in component.json
 
-"_componentSpec": {
-    "_browserSupport": {
-        "title": "Browser Support",
-        "minimumSupport": "IE8+",
-        "notes": "Browser Support Notes"
-    },
-    "_accessibilitySupport": {
-        "title": "Accessibility Support",
-        "supported": "AA",
-        "notes": "Accessibility notes"
-    },
-    "_additionalInformation": {
-        "title": "Additional Information",
-        "_additionalInformationItems": [
-            {
-                "information": "Information item 1"
-            },
-            {
-                "information": "Information item 2"
-            },
-            {
-                "information": "Information item 3"
-            }
-        ]
-    }   
+"_hint-extension": {
+    "_items": [
+        {
+            "title": "Adapt Hint",
+            "body": "An extension that adds a small, clickable icon to a component that displays additional information."
+        },
+        {
+            "title": "Additional",
+            "body": "Information"
+        }
+    ] 
 }
