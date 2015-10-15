@@ -20,9 +20,9 @@ The attributes listed below are used in *components.json* to configure **Hint**,
 
 >**_items** (array): Multiple items may be created. Each *_item* represents one element of the hint extension and contains values for **title**, and **body**.
 
->**title** (string): The title of the particular item.
+>>**title** (string): The title of the particular item.
 
->**body** (string): The body text content of the particular item.
+>>**body** (string): The body text content of the particular item.
 
 ## Accessibility
 **Hint** is not currently accessible.
