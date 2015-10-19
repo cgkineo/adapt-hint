@@ -16,13 +16,11 @@ The attributes listed below are used in *components.json* to configure **Hint**,
 
 ## Attributes
 
-**_hint-extension** (object): The hint-extension object that contains a value for **_items**.
+**_hint** (array): Multiple items may be created. Each *_hint* represents one element of the hint extension and contains values for **title**, and **body**.
 
->**_items** (array): Multiple items may be created. Each *_item* represents one element of the hint extension and contains values for **title**, and **body**.
+>**title** (string): The title of the particular item.
 
->>**title** (string): The title of the particular item.
-
->>**body** (string): The body text content of the particular item.
+>**body** (string): The body text content of the particular item.
 
 ## Accessibility
 **Hint** is not currently accessible.

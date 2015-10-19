@@ -103,7 +103,7 @@ define(function(require) {
 	});
 
 	Adapt.on('componentView:postRender', function(view) {
-		if (view.model.get('_hint-extension')) {
+		if (view.model.get('_hint')) {
 			new hintExtensionView({
 				model: view.model
 			});

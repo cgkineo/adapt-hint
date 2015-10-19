@@ -1,9 +1,9 @@
 .hint-extension {
 	.hint-extension-button {
-		background-color: @button-color;
+		background-color: @item-color;
 		border-radius: 50%;
 		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-		color: @button-text-color;
+		color: @item-text-color;
 		padding: 5px;
 		position: absolute;
 		right: -10px;
@@ -11,8 +11,8 @@
 		z-index: 20;
 
 		.no-touch &:hover {
-			background-color: @button-color-hover;
-			color: @button-text-color-hover;
+			background-color: @item-color-hover;
+			color: @item-text-color-hover;
 		}
 
 		@media all and (max-width: @device-width-small) {
