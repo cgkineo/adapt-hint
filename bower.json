@@ -1,15 +1,17 @@
 {
-  "name": "adapt-hint",
-  "version": "2.0.0",
-  "framework": "^2.0.0",
-  "displayName" : "Hint",
-  "component" : "hint",
-  "description": "An extension that adds a small, clickable icon to a component that displays additional information.",
-  "main": "/js/adapt-hint.js",
-  "keywords": [
-    "adapt-plugin",
-    "adapt-extension"
-  ],
-  "license": "GPL-3.0",
-  "homepage": "https://github.com/cgkineo/adapt-hint"
+    "name": "adapt-hint",
+    "repository": "git://github.com/cgkineo/adapt-hint",
+    "framework": "^2.0.0",
+    "version": "2.0.0",
+    "homepage": "https://github.com/cgkineo/adapt-hint",
+    "issues": "https://github.com/cgkineo/adapt-hint/issues/",
+    "displayName": "Hint",
+    "component": "hint",
+    "description": "An extension that adds a small, clickable icon to a component that displays additional information",
+    "main": "/js/adapt-hint.js",
+    "keywords": [
+        "adapt-plugin",
+        "adapt-component"
+    ],
+    "license": "GPLv3"
 }
