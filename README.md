@@ -1,5 +1,7 @@
 # adapt-hint
 
+<img src="demo.gif" alt="the hint extension in action" align="right">
+
 **Hint** is a C&G Kineo *presentation extension*.
 
 The extension adds a small, clickable icon to a component that displays additional information.

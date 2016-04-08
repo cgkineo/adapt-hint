@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "required": false,
+  "properties": {
+    "pluginLocations": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "config": {
+          "type": "object"
+        },
+        "course": {
+          "type": "object"
+        },
+        "contentobject": {
+          "type": "object"
+        },
+        "article": {
+          "type": "object"
+        },
+        "block": {
+          "type": "object"
+        },
+        "component": {
+          "type": "object",
+          "properties": {
+            "_hint": {
+              "type": "array",
+              "required": true,
+              "title": "Hint item(s)",
+              "items": {
+                "type": "object",
+                "required": true,
+                "title": "Items",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Title",
+                    "inputType": "Text",
+                    "validators": []
+                  },
+                  "body": {
+                    "type": "string",
+                    "required": true,
+                    "title": "Body",
+                    "inputType": "Text",
+                    "validators": []
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
