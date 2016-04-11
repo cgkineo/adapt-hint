@@ -6,12 +6,13 @@
     "homepage": "https://github.com/cgkineo/adapt-hint",
     "issues": "https://github.com/cgkineo/adapt-hint/issues/",
     "displayName": "Hint",
-    "component": "hint",
+    "extension": "hint",
     "description": "An extension that adds a small, clickable icon to a component that displays additional information",
     "main": "/js/adapt-hint.js",
     "keywords": [
         "adapt-plugin",
-        "adapt-component"
+        "adapt-extension"
     ],
+	"targetAttribute": "_hint",
     "license": "GPLv3"
 }
