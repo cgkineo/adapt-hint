@@ -28,7 +28,7 @@
           "properties": {
             "_hint": {
               "type": "array",
-              "required": true,
+              "required": false,
               "title": "Hint item(s)",
               "items": {
                 "type": "object",
