@@ -103,7 +103,7 @@ define(function(require) {
 	});
 
 	Adapt.on('componentView:postRender', function(view) {
-		if (view.model.get('_hint')) {
+		if (view.model.has('_hint') && view.model.get('_hint').length > 0) {
 			new hintExtensionView({
 				model: view.model
 			});

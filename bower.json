@@ -2,7 +2,7 @@
     "name": "adapt-hint",
     "repository": "git://github.com/cgkineo/adapt-hint",
     "framework": "^2.0.0",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "homepage": "https://github.com/cgkineo/adapt-hint",
     "issues": "https://github.com/cgkineo/adapt-hint/issues/",
     "displayName": "Hint",
