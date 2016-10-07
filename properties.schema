@@ -3,6 +3,24 @@
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
   "required": false,
+  "globals": {
+    "openButtonText": {
+      "type": "string",
+      "required": true,
+      "default": "open hint button",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    },
+    "closeButtonText": {
+      "type": "string",
+      "required": true,
+      "default": "close hint button",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    }
+  },
   "properties": {
     "pluginLocations": {
       "type": "object",

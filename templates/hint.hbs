@@ -1,19 +1,19 @@
 <div class="hint-extension-inner">
 
-	<a href="#" class="hint-extension-button icon icon-question"></a>
+	<button aria-label="{{_globals._extensions._hint.openButtonText}}" class="hint-extension-button icon icon-question"></button>
 
-	<div class="hint-extension-widget">
+	<div class="hint-extension-widget" role="region" aria-label="{{_globals._accessibility._ariaLabels.feedbackPopUp}}">
 		{{#each _hint}}
 		<div class="hint-extension-item item-{{@index}}">
 			<div class="hint-extension-item-inner">
 				<div class="hint-extension-item-title">
-					<div class="hint-extension-item-title-inner">
+					<div class="hint-extension-item-title-inner accessible-text-block" role="heading" aria-level="1" tabindex="0">
 						{{{title}}}
 					</div>
 				</div>
 				<div class="hint-extension-item-body">
 					<div class="hint-extension-item-body-inner">
-						{{{body}}}
+						{{{a11y_text body}}}
 					</div>
 				</div>
 			</div>
