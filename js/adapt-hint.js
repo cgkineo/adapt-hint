@@ -54,8 +54,14 @@ define(function(require) {
 			if (event) event.preventDefault();
 
 			var $specDetail = this.$('.hint-extension-widget');
+			var closeAria = Adapt.course.get('_globals')._extensions._hint.closeButtonText;
+			var openAria = Adapt.course.get('_globals')._extensions._hint.openButtonText;
 
 			if (!$specDetail.hasClass('widget-open')) {
+
+				$(event.currentTarget).attr({
+					'aria-label': closeAria
+				});
 				$specDetail.velocity({
 					scaleX: 1,
 					scaleY: 1
@@ -67,9 +73,14 @@ define(function(require) {
 				$specDetail.addClass('widget-open');
 
 				this.$('.hint-extension-button').removeClass('icon-question').addClass('icon-cross');
-
+				Adapt.trigger('popup:opened',  this.$('.hint-extension-inner'));
+				$specDetail.a11y_focus();
 				Adapt.trigger('hint-extension-widget:open', this.model.get('_id'));
+
 			} else {
+				$(event.currentTarget).attr({
+					'aria-label': openAria
+				});
 				$specDetail.velocity({
 					scaleX: 0,
 					scaleY: 0
@@ -80,6 +91,7 @@ define(function(require) {
 				$specDetail.removeClass('widget-open');
 
 				this.$('.hint-extension-button').removeClass('icon-cross').addClass('icon-question');
+				 Adapt.trigger('popup:closed',  this.$('.hint-extension-inner'));
 			}
 		},
 
