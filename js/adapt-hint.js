@@ -22,7 +22,7 @@ define(function(require) {
 		
 		setupParentCompletionHook: function() {
 			// Capture original setCompletionStatus handler
-			this.originalParentSetCompletionStatus = this.parent.setCompletionStatus;
+			this.originalParentSetCompletionStatus = this.parentView.setCompletionStatus;
 			
 			// Override original with new hook
 			this.parentView.setCompletionStatus = _.bind(function() {
