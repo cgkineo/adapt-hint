@@ -6,7 +6,7 @@
 
 The extension adds a small, clickable icon to a component that displays additional information.
 
-##Installation
+## Installation
 
 Open the */src/extensions* folder in a new terminal window on Mac OSX or right click the folder and select 'Git Bash Here' on Windows.
 
