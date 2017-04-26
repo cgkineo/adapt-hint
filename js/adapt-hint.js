@@ -31,23 +31,18 @@ define(function(require) {
 
 		setLayout: function() {
 			if (Adapt.config.get('_defaultDirection') == 'rtl' && Adapt.device.screenSize === 'small' ) {
-                $('.' + this.model.get('_id') + " .component-title-inner").css({
+				$('.' + this.model.get('_id') + " .component-title-inner").css({
 					paddingLeft: '35px'
 				});
-            } else {
-                $('.' + this.model.get('_id') + " .component-title-inner").css({
+			} else {
+				$('.' + this.model.get('_id') + " .component-title-inner").css({
 					paddingRight: '35px'
 				});
-            }
+			}
 
 			var $specDetail = this.$('.hint-extension-widget');
 
-			$specDetail.velocity({
-				scaleX: 0,
-				scaleY: 0
-			}, {
-				duration: 1
-			});
+			$specDetail.velocity({ scaleX: 0, scaleY: 0 }, { duration: 1 });
 		},
 
 		onSpecButtonClicked: function(event) {
