@@ -11,8 +11,42 @@ define(function(require) {
 		
 		className: 'hint-extension',
 
-		initialize: function() {
+		initialize: function(options) {
+			this.parentView = parentView;
+			this.setupParentCompletionHook();
 			this.render();
+		},
+		
+		isParentCompleted: false,
+		hasHintOpened: false,
+		
+		setupParentCompletionHook: function() {
+			// Capture original setCompletionStatus handler
+			this.originalParentSetCompletionStatus = this.parent.setCompletionStatus;
+			
+			// Override original with new hook
+			this.parentView.setCompletionStatus = _.bind(function() {
+				this.isParentCompleted = true;
+				this.checkParentCompletionStatus();
+			}, this);
+		},
+		
+		checkParentCompletionStatus: function() {
+			// Check that we're using a different completion method
+			
+			if (this.model.get("_hint")._isOptional) {
+				// complete in the normal way
+				return this.originalParentSetCompletionStatus.call(this.parentView);
+			}
+			
+			if (!this.isParenCompleted || !this.hasHintOpened) return;
+			
+			/* complete when :
+			 *  _hint._isOptional = false
+			 *  isParentCompleted
+			 *  hasHintOpened
+			 */
+			return this.originalParentSetCompletionStatus.call(this.parentView);
 		},
 
 		render: function() {
@@ -72,6 +106,9 @@ define(function(require) {
 				$specDetail.a11y_focus();
 				Adapt.trigger('hint-extension-widget:open', this.model.get('_id'));
 
+				this.hasHintOpened = true;
+				this.checkParentCompletionStatus();
+				
 			} else {
 				$(event.currentTarget).attr({
 					'aria-label': openAria
@@ -112,7 +149,8 @@ define(function(require) {
 	Adapt.on('componentView:postRender', function(view) {
 		if (view.model.has('_hint') && view.model.get('_hint').length > 0) {
 			new hintExtensionView({
-				model: view.model
+				model: view.model,
+				parentView: view
 			});
 		}
 	});
