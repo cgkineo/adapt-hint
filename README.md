@@ -30,9 +30,9 @@ The attributes listed below are used in *components.json* to configure **Hint**,
 ## Limitations
 
 ----------------------------
-**Version number:**  2.0  
-**Framework versions:** 2.0  
-**Author / maintainer:** C&G Kineo  
-**Accessibility support:** No  
-**RTL support:** Yes  
-**Cross-platform coverage:** To be confirmed  
+**Version number:** 3.0.0
+**Framework versions:** 5+
+**Author / maintainer:** C&G Kineo
+**Accessibility support:** No
+**RTL support:** Yes
+**Cross-platform coverage:** To be confirmed

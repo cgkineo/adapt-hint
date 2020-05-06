@@ -1,88 +1,115 @@
-.hint-extension {
-	.hint-extension-button {
-		background-color: @item-color;
-		border-radius: 50%;
-		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-		color: @item-text-color;
-		padding: 5px;
-		position: absolute;
-		right: -10px;
-		top: 0;
-		z-index: 20;
+.hint {
+  &__btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 20;
 
-		.no-touch &:hover {
-			background-color: @item-color-hover;
-			color: @item-text-color-hover;
-		}
+    .dir-rtl & {
+      right: inherit;
+      left: 0;
+    }
+  }
 
-		@media all and (max-width: @device-width-small) {
-			right: 0;
-		}
+  &__btn.is-closed .icon {
+    .icon-question;
+  }
 
-		.dir-rtl & {
-			left: -10px;
-			right: inherit;
+  &__btn.is-open .icon {
+    .icon-cross;
+  }
 
-			@media all and (max-width: @device-width-small) {
-				left: 0;
-				right: inherit;
-			}
-		}
-	}
+  &__widget {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20rem;
+    z-index: 15;
+    opacity: 0;
 
-	.hint-extension-widget {
-		background-color: @background-color;
-		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-		display: none;
-		position: absolute;
-		right: 0;
-		top: 10px;
-		width: 260px;
-		z-index: 15;
+    &.is-open {
+      opacity: 1;
+    }
 
-		-webkit-transform-origin: top right;
-		-moz-transform-origin: top right;
-		-ms-transform-origin: top right;
-		transform-origin: top right;
+    .dir-rtl & {
+      right: inherit;
+      left: 0;
+    }
+  }
+}
 
-		.ie8 & {
-			border: 2px solid darken(@background-color, 10%);
-		}
+.component.has-hint {
+  .component__title {
+    min-height: @icon-size + (@icon-padding * 2);
+    padding-right: @icon-size + (@icon-padding * 2);
 
-		.dir-rtl & {
-			left: 0;
-			right: inherit;
+    .dir-rtl & {
+      padding-right: inherit;
+      padding-left: @icon-size + (@icon-padding * 2);
+    }
+  }
+}
 
-			-webkit-transform-origin: top left;
-			-moz-transform-origin: top left;
-			-ms-transform-origin: top left;
-			transform-origin: top left;
-		}
-	}
+//----------------------
+// Theme
+//----------------------
+.hint {
 
-	.hint-extension-item {
-		&:nth-child(even) {
-			background-color: darken(@background-color, 10%);
-		}
+	// widget open/close animation
+  &__widget {
+    // could move transition out into mixin
+    transition: all .5s ease-in-out;
+    transform-origin: top right;
+    transform: scale(0);
 
-		.ie8 & {
-			&.item-1,
-			&.item-3 {
-				background-color: darken(@background-color, 10%);
-			}
-		}
-	}
+    &.is-open {
+      transform: scale(1);
+    }
 
-	.hint-extension-item-inner {
-		padding: 10px;
-	}
+    .dir-rtl & {
+      transform-origin: top left;
+    }
+  }
 
-	.hint-extension-item-title {
-		font-size: 16px;
-		font-weight: 700;
-	}
+  // theme styling
+  &__widget {
+    top: @icon-padding * 1.5;
+    right: @icon-padding * 1.5;
+    border: 0.25rem solid @item-color-hover;
 
-	.hint-extension-item-body {
-		padding-top: 10px;
-	}
+    .dir-rtl & {
+      right: inherit;
+      left: @icon-padding;
+    }
+  }
+
+  &__item {
+    background-color: @font-color-inverted;
+    color: @font-color;
+  }
+
+  &__item-inner {
+    padding: @item-padding;
+  }
+
+  &__item-title {
+    margin-bottom: @item-title-margin;
+    .item-title;
+  }
+
+  &__item-body a {
+    .link-text;
+  }
+
+  &__btn {
+    background-color: @item-color;
+    color: @item-color-inverted;
+    border-radius: 50%;
+
+    .no-touch &:hover {
+      background-color: @item-color-hover;
+      color: @item-color-inverted-hover;
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+    }
+  }
 }
