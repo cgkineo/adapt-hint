@@ -7,7 +7,7 @@
     "openButtonText": {
       "type": "string",
       "required": true,
-      "default": "open hint button",
+      "default": "open hint",
       "inputType": "Text",
       "validators": [],
       "translatable": true
@@ -15,7 +15,15 @@
     "closeButtonText": {
       "type": "string",
       "required": true,
-      "default": "close hint button",
+      "default": "close hint",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    },
+    "ariaLabelNotify": {
+      "type": "string",
+      "required": true,
+      "default": "Hint",
       "inputType": "Text",
       "validators": [],
       "translatable": true
@@ -45,28 +53,46 @@
           "type": "object",
           "properties": {
             "_hint": {
-              "type": "array",
+              "type": "object",
               "required": false,
-              "title": "Hint item(s)",
-              "items": {
-                "type": "object",
-                "required": true,
-                "title": "Items",
-                "properties": {
-                  "title": {
-                    "type": "string",
-                    "required": false,
-                    "title": "Title",
-                    "inputType": "Text",
-                    "validators": []
-                  },
-                  "body": {
-                    "type": "string",
+              "legend": "Hint",
+              "properties": {
+                "_items": {
+                  "type": "array",
+                  "required": true,
+                  "title": "Hint item(s)",
+                  "items": {
+                    "type": "object",
                     "required": true,
-                    "title": "Body",
-                    "inputType": "Text",
-                    "validators": []
+                    "title": "Items",
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "required": false,
+                        "title": "Title",
+                        "inputType": "Text",
+                        "validators": [],
+                        "translatable": true
+                      },
+                      "body": {
+                        "type": "string",
+                        "required": true,
+                        "title": "Body",
+                        "inputType": "Text",
+                        "validators": [],
+                        "translatable": true
+                      }
+                    }
                   }
+                },
+                "_isNotifyPopup": {
+                  "type": "boolean",
+                  "required": false,
+                  "default": false,
+                  "title": "Use Notify popup?",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "If enabled, hint popup will display as Adapt Notify popup. Recommended for optimum accessibility support."
                 }
               }
             }

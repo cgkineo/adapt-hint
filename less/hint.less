@@ -11,7 +11,7 @@
     }
   }
 
-  &__btn.is-closed .icon {
+  &__btn .icon {
     .icon-question;
   }
 
@@ -19,6 +19,7 @@
     .icon-cross;
   }
 
+  // default popup (widget overlays component)
   &__widget {
     position: absolute;
     top: 0;
@@ -38,6 +39,7 @@
   }
 }
 
+// preserve icon height and prevent title overlap
 .component.has-hint {
   .component__title {
     min-height: @icon-size + (@icon-padding * 2);
@@ -71,7 +73,7 @@
     }
   }
 
-  // theme styling
+  // theme styling for default popup
   &__widget {
     top: @icon-padding * 1.5;
     right: @icon-padding * 1.5;
@@ -101,6 +103,7 @@
     .link-text;
   }
 
+  // global hint btn
   &__btn {
     background-color: @item-color;
     color: @item-color-inverted;
@@ -111,5 +114,21 @@
       color: @item-color-inverted-hover;
       .transition(background-color @duration ease-in, color @duration ease-in;);
     }
+  }
+}
+
+// theme styling for notify popup
+.hint-popup {
+  &__item-inner {
+    padding: @item-padding;
+  }
+
+  &__item-title {
+    margin-bottom: @item-title-margin;
+    .item-title;
+  }
+
+  &__item-body a {
+    .link-text;
   }
 }

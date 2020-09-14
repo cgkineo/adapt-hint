@@ -2,7 +2,7 @@
 
 <img src="demo.gif" alt="the hint extension in action" align="right">
 
-**Hint** is a C&G Kineo *presentation extension*.
+**Hint** is a Kineo *presentation extension*.
 
 The extension adds a small, clickable icon to a component that displays additional information.
 
@@ -18,21 +18,23 @@ The attributes listed below are used in *components.json* to configure **Hint**,
 
 ## Attributes
 
-**_hint** (array): Multiple items may be created. Each *_hint* represents one element of the hint extension and contains values for **title**, and **body**.
+**_items** (array): Multiple items may be created. Each item represents one element of the hint extension and contains values for **title**, and **body**.
 
 >**title** (string): The title of the particular item.
 
 >**body** (string): The body text content of the particular item.
 
+**_isNotifyPopup** (boolean): When set to true, hint item(s) are displayed using Notify, the core FW functionality that handles popups. The default is false. When false, hint item(s) overlay the component.
+
 ## Accessibility
-**Hint** is not currently accessible.
+Please use **_isNotifyPopup** for best accessibility experience.
 
 ## Limitations
 
 ----------------------------
 **Version number:** 3.0.0
-**Framework versions:** 5+
-**Author / maintainer:** C&G Kineo
-**Accessibility support:** No
+**Framework versions:** 5.5+
+**Author / maintainer:**  Kineo
+**Accessibility support:** Yes
 **RTL support:** Yes
 **Cross-platform coverage:** To be confirmed

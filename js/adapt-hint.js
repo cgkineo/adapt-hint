@@ -1,90 +1,102 @@
 define([
-	'core/js/adapt'
+  'core/js/adapt'
 ], function (Adapt) {
 
-	var hintView = Backbone.View.extend({
+  var HintPopupView = Backbone.View.extend({
+    className: 'hint-popup',
 
-		events: {
-			"click .js-hint-btn-toggle": "onHintClicked"
-		},
+    initialize: function() {
+      this.render();
+    },
 
-		className: 'hint',
+    render: function() {
+      const data = this.model.toJSON();
+      data.view = this;
+      const template = Handlebars.templates.hintPopup;
+      this.$el.html(template(data));
+    }
+  });
 
-		initialize: function () {
-			this.render();
-		},
+  var HintView = Backbone.View.extend({
 
-		render: function () {
-			var data = this.model.toJSON();
-			var template = Handlebars.templates['hint'];
+    events: {
+      'click .js-hint-btn-toggle': 'onHintToggleClicked',
+      'click .js-hint-btn-popup': 'onHintPopupClicked'
+    },
 
-			this.$el.html(template(data)).appendTo($('.' + this.model.get('_id')));
-			_.defer(_.bind(this.postRender, this));
-		},
+    className: 'hint',
 
-		postRender: function () {
-			this.setUpClassStates();
-			this.listenTo(Adapt, 'remove', this.remove);
-			this.listenTo(Adapt, 'js-hint-widget:open', this.checkIfShouldClose);
-		},
+    initialize: function() {
+      this.listenTo(Adapt, 'remove', this.remove);
 
-		setUpClassStates: function () {
-			this.$el.parents('.component').addClass('has-hint');
+      if (!this.model.get('_hint')._isNotifyPopup) {
+        this.listenTo(Adapt, 'hint:opened', this.checkIfShouldClose);
+      }
 
-			this.$('.js-hint-btn-toggle').addClass('is-closed');
-			this.$('.js-hint-widget').addClass('is-closed');
-		},
+      this.render();
+    },
 
-		onHintClicked: function (event) {
-			if (event) event.preventDefault();
+    render: function() {
+      const data = this.model.toJSON();
+      const template = Handlebars.templates.hint;
 
-			var $button = this.$('.js-hint-btn-toggle');
-			var $widget = this.$('.js-hint-widget');
+      this.$el.html(template(data)).appendTo($('.' + this.model.get('_id')));
 
-			var closeAria = Adapt.course.get('_globals')._extensions._hint.closeButtonText;
-			var openAria = Adapt.course.get('_globals')._extensions._hint.openButtonText;
+      _.defer(this.postRender.bind(this));
+    },
 
-			if (!$widget.hasClass('is-open')) {
-				$(event.currentTarget).attr({
-					'aria-label': closeAria
-				});
+    postRender: function() {
+      this.$el.parents('.component').addClass('has-hint');
+    },
 
-				$button.removeClass('is-closed').addClass('is-open');
-				$widget.removeClass('is-closed').addClass('is-open');
+    onHintPopupClicked: function() {
+      Adapt.notify.popup({
+        _view: new HintPopupView({ model: this.model }),
+        _isCancellable: true,
+        _showCloseButton: true,
+        _closeOnBackdrop: true
+      });
+    },
 
-				Adapt.trigger('popup:opened', this.$('.js-hint-inner'));
-				$widget.a11y_focus();
-				Adapt.trigger('js-hint-widget:open', this.model.get('_id'));
-			} else {
-				$(event.currentTarget).attr({
-					'aria-label': openAria
-				});
+    onHintToggleClicked: function (e) {
+      const $button = this.$('.js-hint-btn-toggle');
+      const $widget = this.$('.js-hint-widget');
+      const globals = Adapt.course.get('_globals')._extensions._hint;
+      const isBeingOpened = $widget.hasClass('is-closed');
 
-				$button.removeClass('is-open').addClass('is-closed');
-				$widget.removeClass('is-open').addClass('is-closed');
+      $widget.toggleClass('is-open', isBeingOpened).toggleClass('is-closed', !isBeingOpened);
+      $button.attr('aria-label', (isBeingOpened ? globals.closeButtonText : globals.openButtonText))
+        .toggleClass('is-open', isBeingOpened).toggleClass('is-closed', !isBeingOpened);
 
-				Adapt.trigger('popup:closed', this.$('.js-hint-inner'));
-			}
-		},
+      if (isBeingOpened) {
+        Adapt.a11y.popupOpened($widget);
+        Adapt.trigger('hint:opened', this.model.get('_id'));
+        return;
+      }
 
-		checkIfShouldClose: function (id) {
-			if (this.model.get('_id') !== id) {
-				var $widget = $('.' + this.model.get('_id') + " .js-hint-widget");
-				var $button = $('.' + this.model.get('_id') + " .js-hint-btn-toggle");
+      Adapt.a11y.popupClosed($button);
+    },
 
-				$button.removeClass('is-open').addClass('is-closed');
-				$widget.removeClass('is-open').addClass('is-closed');
-			}
-		}
+    /**
+     * Handles closing the hint pop-out if another hint was opened
+     * @param {string} id The component id of the hint that triggered this event
+     */
+    checkIfShouldClose: function (id) {
+      if (this.model.get('_id') === id) return;
 
-	});
+      if (this.$('.js-hint-btn-toggle').hasClass('is-closed')) return;
 
-	Adapt.on('componentView:postRender', function (view) {
-		if (view.model.has('_hint') && view.model.get('_hint').length > 0) {
-			new hintView({
-				model: view.model
-			});
-		}
-	});
+      this.onHintToggleClicked();
+    }
+
+  });
+
+  Adapt.on('componentView:postRender', function (view) {
+    if (view.model.has('_hint') && view.model.get('_hint')._items.length > 0) {
+      new HintView({
+        model: view.model
+      });
+    }
+  });
 
 });
