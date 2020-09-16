@@ -1,38 +1,38 @@
 <div class="hint__inner js-hint-inner">
 
-	<button class="btn-icon hint__btn{{#if _hint._isNotifyPopup}} js-hint-btn-popup{{else}} js-hint-btn-toggle{{/if}} is-closed"
-		aria-label="{{_globals._extensions._hint.openButtonText}}">
-		<div class="icon"></div>
-	</button>
+  <button class="btn-icon hint__btn{{#if _hint._isNotifyPopup}} js-hint-btn-popup{{else}} js-hint-btn-toggle{{/if}} is-closed"
+    aria-label="{{_globals._extensions._hint.openButtonText}}">
+    <div class="icon"></div>
+  </button>
 
-	{{#unless _hint._isNotifyPopup}}
-	<div class="hint__widget js-hint-widget is-closed" role="complementary">
+  {{#unless _hint._isNotifyPopup}}
+  <div class="hint__widget js-hint-widget is-closed" role="complementary">
 
-		{{#each _hint._items}}
-		<div class="hint__item item-{{@index}}">
-			<div class="hint__item-inner">
+    {{#each _hint._items}}
+    <div class="hint__item item-{{@index}}">
+      <div class="hint__item-inner">
 
-				{{#if title}}
-				<div class="hint__item-title">
-					<div class="hint__item-title-inner">
-						{{{title}}}
-					</div>
-				</div>
-				{{/if}}
+        {{#if title}}
+        <div class="hint__item-title">
+          <div class="hint__item-title-inner">
+            {{{title}}}
+          </div>
+        </div>
+        {{/if}}
 
-				{{#if body}}
-				<div class="hint__item-body">
-					<div class="hint__item-body-inner">
-						{{{compile_a11y_text body}}}
-					</div>
-				</div>
-				{{/if}}
+        {{#if body}}
+        <div class="hint__item-body">
+          <div class="hint__item-body-inner">
+            {{{compile_a11y_text body}}}
+          </div>
+        </div>
+        {{/if}}
 
-			</div>
-		</div>
-		{{/each}}
+      </div>
+    </div>
+    {{/each}}
 
-	</div>
-	{{/unless}}
+  </div>
+  {{/unless}}
 
 </div>

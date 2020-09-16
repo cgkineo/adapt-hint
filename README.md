@@ -32,9 +32,9 @@ Please use **_isNotifyPopup** for best accessibility experience.
 ## Limitations
 
 ----------------------------
-**Version number:** 3.0.0
-**Framework versions:** 5.5+
-**Author / maintainer:**  Kineo
-**Accessibility support:** Yes
-**RTL support:** Yes
-**Cross-platform coverage:** To be confirmed
+**Version number:** 3.0.0  
+**Framework versions:** 5.5+  
+**Author / maintainer:**  Kineo  
+**Accessibility support:** Yes  
+**RTL support:** Yes  
+**Cross-platform coverage:** To be confirmed  
