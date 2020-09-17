@@ -80,15 +80,15 @@
   // slide out pop up
   // --------------------------------------------------
   &__widget {
-    top: (@icon-size + (@icon-padding / 2)) / 2;
-    right: (@icon-size + (@icon-padding / 2)) / 2;
+    top: (@icon-size + @icon-padding) / 2;
+    right: (@icon-size + @icon-padding) / 2;
     padding: @item-padding;
     background-color: @white;
-    border: 0.125rem solid @item-color;
+    border: .125rem solid @item-color;
 
     .dir-rtl & {
       right: inherit;
-      left: (@icon-size + (@icon-padding / 2)) / 2;
+      left: (@icon-size + @icon-padding) / 2;
     }
   }
 
