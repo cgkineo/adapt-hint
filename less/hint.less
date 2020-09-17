@@ -1,4 +1,6 @@
 .hint {
+  // global hint btn
+  // --------------------------------------------------
   &__btn {
     position: absolute;
     top: 0;
@@ -19,7 +21,8 @@
     .icon-cross;
   }
 
-  // default popup (widget overlays component)
+  // slide out pop up
+  // --------------------------------------------------
   &__widget {
     position: absolute;
     top: 0;
@@ -28,83 +31,25 @@
     z-index: 15;
     opacity: 0;
 
-    &.is-open {
-      opacity: 1;
-    }
-
     .dir-rtl & {
       right: inherit;
       left: 0;
     }
   }
-}
 
-// preserve icon height and prevent title overlap
-.component.has-hint {
-  .component__title {
-    min-height: @icon-size + (@icon-padding * 2);
-    padding-right: @icon-size + (@icon-padding * 2);
-
-    .dir-rtl & {
-      padding-right: inherit;
-      padding-left: @icon-size + (@icon-padding * 2);
-    }
+  &__widget.is-open {
+    opacity: 1;
   }
 }
 
-//----------------------
-// Theme
-//----------------------
+// --------------------------------------------------
+// THEME
+// --------------------------------------------------
 .hint {
-
-	// widget open/close animation
-  &__widget {
-    // could move transition out into mixin
-    transition: all .5s ease-in-out;
-    transform-origin: top right;
-    transform: scale(0);
-
-    &.is-open {
-      transform: scale(1);
-    }
-
-    .dir-rtl & {
-      transform-origin: top left;
-    }
-  }
-
-  // theme styling for default popup
-  &__widget {
-    top: @icon-padding * 1.5;
-    right: @icon-padding * 1.5;
-    border: 0.25rem solid @item-color-hover;
-
-    .dir-rtl & {
-      right: inherit;
-      left: @icon-padding;
-    }
-  }
-
-  &__item {
-    background-color: @font-color-inverted;
-    color: @font-color;
-  }
-
-  &__item-inner {
-    padding: @item-padding;
-  }
-
-  &__item-title {
-    margin-bottom: @item-title-margin;
-    .item-title;
-  }
-
-  &__item-body a {
-    .link-text;
-  }
-
   // global hint btn
+  // --------------------------------------------------
   &__btn {
+    padding: @icon-padding / 2;
     background-color: @item-color;
     color: @item-color-inverted;
     border-radius: 50%;
@@ -115,20 +60,66 @@
       .transition(background-color @duration ease-in, color @duration ease-in;);
     }
   }
-}
 
-// theme styling for notify popup
-.hint-popup {
-  &__item-inner {
+  // widget open/close animation
+  // --------------------------------------------------
+  &__widget {
+    .transform(scale(0,0));
+    .transition(all .5s ease-in-out);
+    transform-origin: top right;
+
+    .dir-rtl & {
+      transform-origin: top left;
+    }
+  }
+
+  &__widget.is-open {
+    .transform(scale(1,1));
+  }
+
+  // slide out pop up
+  // --------------------------------------------------
+  &__widget {
+    top: (@icon-size + (@icon-padding / 2)) / 2;
+    right: (@icon-size + (@icon-padding / 2)) / 2;
     padding: @item-padding;
+    background-color: @white;
+    border: 0.125rem solid @item-color;
+
+    .dir-rtl & {
+      right: inherit;
+      left: (@icon-size + (@icon-padding / 2)) / 2;
+    }
+  }
+
+  // slide out item
+  // --------------------------------------------------
+  &__item:not(:last-child) {
+    margin-bottom: @item-margin * 2;
   }
 
   &__item-title {
-    margin-bottom: @item-title-margin;
     .item-title;
+  }
+
+  &__item-title.has-margin {
+    margin-bottom: @item-title-margin;
   }
 
   &__item-body a {
     .link-text;
+  }
+}
+
+// prevent overlap with first element within the component header
+// --------------------------------------------------
+.component.has-hint .component {
+  &__header-inner > div:first-of-type {
+    padding-right: @icon-size + @icon-padding;
+
+    .dir-rtl & {
+      padding-right: inherit;
+      padding-left: @icon-size + @icon-padding;
+    }
   }
 }
