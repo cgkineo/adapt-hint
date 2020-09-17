@@ -2,7 +2,8 @@ define([
   'core/js/adapt'
 ], function (Adapt) {
 
-  var HintPopupView = Backbone.View.extend({
+  const HintPopupView = Backbone.View.extend({
+
     className: 'hint-popup',
 
     initialize: function() {
@@ -15,9 +16,10 @@ define([
       const template = Handlebars.templates.hintPopup;
       this.$el.html(template(data));
     }
+
   });
 
-  var HintView = Backbone.View.extend({
+  const HintView = Backbone.View.extend({
 
     events: {
       'click .js-hint-btn-toggle': 'onHintToggleClicked',
@@ -64,9 +66,13 @@ define([
       const globals = Adapt.course.get('_globals')._extensions._hint;
       const isBeingOpened = $widget.hasClass('is-closed');
 
-      $widget.toggleClass('is-open', isBeingOpened).toggleClass('is-closed', !isBeingOpened);
-      $button.attr('aria-label', (isBeingOpened ? globals.closeButtonText : globals.openButtonText))
-        .toggleClass('is-open', isBeingOpened).toggleClass('is-closed', !isBeingOpened);
+      $widget
+        .toggleClass('is-open', isBeingOpened)
+        .toggleClass('is-closed', !isBeingOpened);
+      $button
+        .toggleClass('is-open', isBeingOpened)
+        .toggleClass('is-closed', !isBeingOpened)
+        .attr('aria-label', (isBeingOpened ? globals.closeButtonText : globals.openButtonText));
 
       if (isBeingOpened) {
         Adapt.a11y.popupOpened($widget);
