@@ -1,120 +1,108 @@
-define(function(require) {
+define([
+  'core/js/adapt'
+], function (Adapt) {
 
-	var Adapt = require('coreJS/adapt');
-	var Backbone = require('backbone');
+  const HintPopupView = Backbone.View.extend({
 
-	var hintExtensionView = Backbone.View.extend({
+    className: 'hint-popup',
 
-		events: {
-			"click .hint-extension-button": "onSpecButtonClicked"
-		},
-		
-		className: 'hint-extension',
+    initialize: function() {
+      this.render();
+    },
 
-		initialize: function() {
-			this.render();
-		},
+    render: function() {
+      const data = this.model.toJSON();
+      data.view = this;
+      const template = Handlebars.templates.hintPopup;
+      this.$el.html(template(data));
+    }
 
-		render: function() {
-			var data = this.model.toJSON();
-			var template = Handlebars.templates['hint'];
+  });
 
-			this.$el.html(template(data)).appendTo($('.' + this.model.get('_id')));
-			_.defer(_.bind(this.postRender, this));
-		},
+  const HintView = Backbone.View.extend({
 
-		postRender: function() {
-			this.setLayout();
-			this.listenTo(Adapt, 'remove', this.remove);
-			this.listenTo(Adapt, 'hint-extension-widget:open', this.checkIfShouldClose);
-		},
+    events: {
+      'click .js-hint-btn-toggle': 'onHintToggleClicked',
+      'click .js-hint-btn-popup': 'onHintPopupClicked'
+    },
 
-		setLayout: function() {
-			if (Adapt.config.get('_defaultDirection') == 'rtl' && Adapt.device.screenSize === 'small' ) {
-				$('.' + this.model.get('_id') + " .component-title-inner").css({
-					paddingLeft: '35px'
-				});
-			} else {
-				$('.' + this.model.get('_id') + " .component-title-inner").css({
-					paddingRight: '35px'
-				});
-			}
+    className: 'hint',
 
-			var $specDetail = this.$('.hint-extension-widget');
+    initialize: function() {
+      this.listenTo(Adapt, 'remove', this.remove);
 
-			$specDetail.velocity({ scaleX: 0, scaleY: 0 }, { duration: 1 });
-		},
+      if (!this.model.get('_hint')._isNotifyPopup) {
+        this.listenTo(Adapt, 'hint:opened', this.checkIfShouldClose);
+      }
 
-		onSpecButtonClicked: function(event) {
-			if (event) event.preventDefault();
+      this.render();
+    },
 
-			var $specDetail = this.$('.hint-extension-widget');
-			var closeAria = Adapt.course.get('_globals')._extensions._hint.closeButtonText;
-			var openAria = Adapt.course.get('_globals')._extensions._hint.openButtonText;
+    render: function() {
+      const data = this.model.toJSON();
+      const template = Handlebars.templates.hint;
 
-			if (!$specDetail.hasClass('widget-open')) {
+      this.$el.html(template(data)).appendTo($('.' + this.model.get('_id')));
 
-				$(event.currentTarget).attr({
-					'aria-label': closeAria
-				});
-				$specDetail.velocity({
-					scaleX: 1,
-					scaleY: 1
-				}, {
-					duration: 800,
-					display: 'block',
-					easing: [500, 35]
-				});
-				$specDetail.addClass('widget-open');
+      _.defer(this.postRender.bind(this));
+    },
 
-				this.$('.hint-extension-button').removeClass('icon-question').addClass('icon-cross');
-				Adapt.trigger('popup:opened',  this.$('.hint-extension-inner'));
-				$specDetail.a11y_focus();
-				Adapt.trigger('hint-extension-widget:open', this.model.get('_id'));
+    postRender: function() {
+      this.$el.parents('.component').addClass('has-hint');
+    },
 
-			} else {
-				$(event.currentTarget).attr({
-					'aria-label': openAria
-				});
-				$specDetail.velocity({
-					scaleX: 0,
-					scaleY: 0
-				}, {
-					duration: 300,
-					display: 'none'
-				});
-				$specDetail.removeClass('widget-open');
+    onHintPopupClicked: function() {
+      Adapt.notify.popup({
+        _view: new HintPopupView({ model: this.model }),
+        _isCancellable: true,
+        _showCloseButton: true,
+        _closeOnBackdrop: true
+      });
+    },
 
-				this.$('.hint-extension-button').removeClass('icon-cross').addClass('icon-question');
-				 Adapt.trigger('popup:closed',  this.$('.hint-extension-inner'));
-			}
-		},
+    onHintToggleClicked: function (e) {
+      const $button = this.$('.js-hint-btn-toggle');
+      const $widget = this.$('.js-hint-widget');
+      const globals = Adapt.course.get('_globals')._extensions._hint;
+      const isBeingOpened = $widget.hasClass('is-closed');
 
-		checkIfShouldClose: function(id) {
-			if (this.model.get('_id') !== id) {
-				var $widget = $('.' + this.model.get('_id') + " .hint-extension-widget");
-				var $button = $('.' + this.model.get('_id') + " .hint-extension-button");
+      $widget
+        .toggleClass('is-open', isBeingOpened)
+        .toggleClass('is-closed', !isBeingOpened);
+      $button
+        .toggleClass('is-open', isBeingOpened)
+        .toggleClass('is-closed', !isBeingOpened)
+        .attr('aria-label', (isBeingOpened ? globals.closeButtonText : globals.openButtonText));
 
-				$widget.velocity({
-					scaleX: 0,
-					scaleY: 0
-				}, {
-					duration: 300,
-					display: 'none'
-				});
+      if (isBeingOpened) {
+        Adapt.a11y.popupOpened($widget);
+        Adapt.trigger('hint:opened', this.model.get('_id'));
+        return;
+      }
 
-				$widget.removeClass('widget-open');
-				$button.removeClass('icon-cross').addClass('icon-question');
-			}
-		}
-	});
+      Adapt.a11y.popupClosed($button);
+    },
 
-	Adapt.on('componentView:postRender', function(view) {
-		if (view.model.has('_hint') && view.model.get('_hint').length > 0) {
-			new hintExtensionView({
-				model: view.model
-			});
-		}
-	});
+    /**
+     * Handles closing the hint pop-out if another hint was opened
+     * @param {string} id The component id of the hint that triggered this event
+     */
+    checkIfShouldClose: function (id) {
+      if (this.model.get('_id') === id) return;
+
+      if (this.$('.js-hint-btn-toggle').hasClass('is-closed')) return;
+
+      this.onHintToggleClicked();
+    }
+
+  });
+
+  Adapt.on('componentView:postRender', function (view) {
+    if (view.model.has('_hint') && view.model.get('_hint')._items.length > 0) {
+      new HintView({
+        model: view.model
+      });
+    }
+  });
 
 });

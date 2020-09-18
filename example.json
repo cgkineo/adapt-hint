@@ -1,12 +1,14 @@
-// add to component in component.json
-
-"_hint": [
-    {
-        "title": "Adapt Hint",
-        "body": "An extension that adds a small, clickable icon to a component that displays additional information."
-    },
-    {
-        "title": "Additional",
-        "body": "Information"
+    // add to component in component.json
+    "_hint": {
+        "_items": [
+            {
+                "title": "Adapt Hint",
+                "body": "An extension that adds a small, clickable icon to a component that displays additional information."
+            },
+            {
+                "title": "Additional",
+                "body": "Information"
+            }
+        ],
+        "_isNotifyPopup": false
     }
-]

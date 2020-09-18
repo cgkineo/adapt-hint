@@ -1,0 +1,29 @@
+<div class="hint-popup__inner">
+
+  <div id="notify-heading" class="aria-label">{{{_globals._extensions._hint.ariaLabelNotify}}}</div>
+
+  {{#each _hint._items}}
+  <div class="hint-popup__item item-{{@index}}">
+    <div class="hint-popup__item-inner">
+
+      {{#if title}}
+      <div class="hint-popup__item-title{{#if body}} has-margin{{/if}}">
+        <div class="hint-popup__item-title-inner">
+          {{{title}}}
+        </div>
+      </div>
+      {{/if}}
+
+      {{#if body}}
+      <div class="hint-popup__item-body">
+        <div class="hint-popup__item-body-inner">
+          {{{a11y_text body}}}
+        </div>
+      </div>
+      {{/if}}
+
+    </div>
+  </div>
+  {{/each}}
+
+</div>
