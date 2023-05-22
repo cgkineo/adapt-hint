@@ -1,7 +1,6 @@
 define([
-  'core/js/adapt',
-  'core/js/reactHelpers'
-], function (Adapt, compile) {
+  'core/js/adapt'
+], function (Adapt) {
 
   const HintPopupView = Backbone.View.extend({
 
