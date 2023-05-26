@@ -1,0 +1,52 @@
+{
+  "$anchor": "_hint-component",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "$patch": {
+    "source": {
+      "$ref": "component"
+    },
+    "with": {
+      "properties": {
+        "_hint": {
+          "type": "object",
+          "title": "Hint",
+          "default": {},
+          "properties": {
+            "_items": {
+              "type": "array",
+              "title": "Hint item(s)",
+              "default": [],
+              "items": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "title": "Title",
+                    "default": "",
+                    "_adapt": {
+                      "translatable": true
+                    }
+                  },
+                  "body": {
+                    "type": "string",
+                    "title": "Body",
+                    "_adapt": {
+                      "translatable": true
+                    }
+                  }
+                }
+              }
+            },
+            "_isNotifyPopup": {
+              "type": "boolean",
+              "title": "Use Notify popup?",
+              "description": "If enabled, hint popup will display as Adapt Notify popup. Recommended for optimum accessibility support.",
+              "default": false
+            }
+          }
+        }
+      }
+    }
+  }
+}
