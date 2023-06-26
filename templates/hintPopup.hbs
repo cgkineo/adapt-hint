@@ -9,7 +9,7 @@
       {{#if title}}
       <div class="hint-popup__item-title{{#if body}} has-margin{{/if}}">
         <div class="hint-popup__item-title-inner">
-          {{{title}}}
+          {{{compile title}}}
         </div>
       </div>
       {{/if}}
@@ -17,7 +17,7 @@
       {{#if body}}
       <div class="hint-popup__item-body">
         <div class="hint-popup__item-body-inner">
-          {{{a11y_text body}}}
+          {{{compile body}}}
         </div>
       </div>
       {{/if}}
