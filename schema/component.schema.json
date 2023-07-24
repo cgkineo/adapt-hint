@@ -37,12 +37,6 @@
                   }
                 }
               }
-            },
-            "_isNotifyPopup": {
-              "type": "boolean",
-              "title": "Use Notify popup?",
-              "description": "If enabled, hint popup will display as Adapt Notify popup. Recommended for optimum accessibility support.",
-              "default": false
             }
           }
         }

@@ -12,14 +12,6 @@
       "validators": [],
       "translatable": true
     },
-    "closeButtonText": {
-      "type": "string",
-      "required": true,
-      "default": "close hint",
-      "inputType": "Text",
-      "validators": [],
-      "translatable": true
-    },
     "ariaLabelNotify": {
       "type": "string",
       "required": true,
@@ -84,15 +76,6 @@
                       }
                     }
                   }
-                },
-                "_isNotifyPopup": {
-                  "type": "boolean",
-                  "required": false,
-                  "default": false,
-                  "title": "Use Notify popup?",
-                  "inputType": "Checkbox",
-                  "validators": [],
-                  "help": "If enabled, hint popup will display as Adapt Notify popup. Recommended for optimum accessibility support."
                 }
               }
             }

@@ -29,14 +29,6 @@
                         "translatable": true
                       }
                     },
-                    "closeButtonText": {
-                      "type": "string",
-                      "title": "Close button text",
-                      "default": "close hint",
-                      "_adapt": {
-                        "translatable": true
-                      }
-                    },
                     "ariaLabelNotify": {
                       "type": "string",
                       "title": "Aria label notify",

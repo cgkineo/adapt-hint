@@ -1,6 +1,4 @@
 .hint {
-  // global hint btn
-  // --------------------------------------------------
   &__btn {
     position: absolute;
     top: 0;
@@ -16,38 +14,12 @@
   &__btn .icon {
     .icon-question;
   }
-
-  &__btn.is-open .icon {
-    .icon-cross;
-  }
-
-  // slide out pop up
-  // --------------------------------------------------
-  &__widget {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20rem;
-    z-index: 15;
-    opacity: 0;
-
-    .dir-rtl & {
-      right: inherit;
-      left: 0;
-    }
-  }
-
-  &__widget.is-open {
-    opacity: 1;
-  }
 }
 
 // --------------------------------------------------
 // THEME
 // --------------------------------------------------
 .hint {
-  // global hint btn
-  // --------------------------------------------------
   &__btn {
     padding: @icon-padding / 2;
     background-color: @item-color;
@@ -61,38 +33,7 @@
     }
   }
 
-  // widget open/close animation
-  // --------------------------------------------------
-  &__widget {
-    .transform(scale(0,0));
-    .transition(all .5s ease-in-out);
-    transform-origin: top right;
-
-    .dir-rtl & {
-      transform-origin: top left;
-    }
-  }
-
-  &__widget.is-open {
-    .transform(scale(1,1));
-  }
-
-  // slide out pop up
-  // --------------------------------------------------
-  &__widget {
-    top: (@icon-size + @icon-padding) / 2;
-    right: (@icon-size + @icon-padding) / 2;
-    padding: @item-padding;
-    background-color: @white;
-    border: .125rem solid @item-color;
-
-    .dir-rtl & {
-      right: inherit;
-      left: (@icon-size + @icon-padding) / 2;
-    }
-  }
-
-  // slide out item
+  // Pop up item
   // --------------------------------------------------
   &__item:not(:last-child) {
     margin-bottom: @item-margin * 2;
