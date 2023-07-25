@@ -3,8 +3,8 @@
     .notify-title;
   }
 
-  &__title.has-margin {
-    margin-bottom: @item-title-margin;
+  &__title:not(.aria-label) + &__body {
+    margin-top: @item-title-margin;
   }
 
   &__body a {
