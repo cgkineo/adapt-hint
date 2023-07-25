@@ -2,28 +2,26 @@
 
   <div id="notify-heading" class="aria-label">{{{_globals._extensions._hint.ariaLabelNotify}}}</div>
 
-  {{#each _hint._items}}
-  <div class="hint-popup__item item-{{@index}}">
-    <div class="hint-popup__item-inner">
+  <div class="hint-popup__content">
+    <div class="hint-popup__content-inner">
 
-      {{#if title}}
-      <div class="hint-popup__item-title{{#if body}} has-margin{{/if}}">
-        <div class="hint-popup__item-title-inner">
-          {{{compile title}}}
+      {{#if _hint.title}}
+      <div class="hint-popup__title{{#if body}} has-margin{{/if}}">
+        <div class="hint-popup__title-inner">
+          {{{compile _hint.title}}}
         </div>
       </div>
       {{/if}}
 
-      {{#if body}}
-      <div class="hint-popup__item-body">
-        <div class="hint-popup__item-body-inner">
-          {{{compile body}}}
+      {{#if _hint.body}}
+      <div class="hint-popup__body">
+        <div class="hint-popup__body-inner">
+          {{{compile _hint.body}}}
         </div>
       </div>
       {{/if}}
 
     </div>
   </div>
-  {{/each}}
 
 </div>

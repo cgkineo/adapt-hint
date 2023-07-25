@@ -57,7 +57,7 @@ define([
   });
 
   Adapt.on('componentView:postRender', function (view) {
-    if (view.model.has('_hint') && view.model.get('_hint')._items.length > 0) {
+    if (view.model.has('_hint')) {
       new HintView({
         model: view.model
       });

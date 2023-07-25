@@ -1,17 +1,13 @@
 .hint-popup {
-  &__item:not(:last-child) {
-    margin-bottom: @item-margin * 2;
+  &__title {
+    .notify-title;
   }
 
-  &__item-title {
-    .item-title;
-  }
-
-  &__item-title.has-margin {
+  &__title.has-margin {
     margin-bottom: @item-title-margin;
   }
 
-  &__item-body a {
+  &__body a {
     .link-text;
   }
 }
