@@ -13,29 +13,28 @@
           "title": "Hint",
           "default": {},
           "properties": {
-            "_items": {
-              "type": "array",
-              "title": "Hint item(s)",
-              "default": [],
-              "items": {
-                "type": "object",
-                "properties": {
-                  "title": {
-                    "type": "string",
-                    "title": "Title",
-                    "default": "",
-                    "_adapt": {
-                      "translatable": true
-                    }
-                  },
-                  "body": {
-                    "type": "string",
-                    "title": "Body",
-                    "_adapt": {
-                      "translatable": true
-                    }
-                  }
-                }
+            "title": {
+              "type": "string",
+              "title": "Title text for the popup",
+              "default": "",
+              "_adapt": {
+                "translatable": true
+              }
+            },
+            "altTitle": {
+              "type": "string",
+              "title": "Alternative title text for the popup",
+              "description": "Text read out by screen readers if no visual title is included",
+              "default": "",
+              "_adapt": {
+                "translatable": true
+              }
+            },
+            "body": {
+              "type": "string",
+              "title": "Body text for the popup",
+              "_adapt": {
+                "translatable": true
               }
             }
           }

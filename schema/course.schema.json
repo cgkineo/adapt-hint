@@ -28,14 +28,6 @@
                       "_adapt": {
                         "translatable": true
                       }
-                    },
-                    "ariaLabelNotify": {
-                      "type": "string",
-                      "title": "Aria label notify",
-                      "default": "Hint",
-                      "_adapt": {
-                        "translatable": true
-                      }
                     }
                   }
                 }
