@@ -48,9 +48,7 @@ define([
     onHintPopupClicked: function() {
       Adapt.notify.popup({
         _view: new HintPopupView({ model: this.model }),
-        _isCancellable: true,
-        _showCloseButton: true,
-        _closeOnBackdrop: true
+        _classes: 'hint-popup'
       });
     }
 
