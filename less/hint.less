@@ -1,15 +1,5 @@
 .hint {
-  &__btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 20;
-
-    .dir-rtl & {
-      right: inherit;
-      left: 0;
-    }
-  }
+  &__btn {}
 
   &__btn .icon {
     .icon-question;
@@ -52,15 +42,3 @@
   }
 }
 
-// prevent overlap with first element within the component header
-// --------------------------------------------------
-.component.has-hint .component {
-  &__header-inner > div:first-of-type {
-    padding-right: @icon-size + @icon-padding;
-
-    .dir-rtl & {
-      padding-right: inherit;
-      padding-left: @icon-size + @icon-padding;
-    }
-  }
-}
