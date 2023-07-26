@@ -2,5 +2,18 @@
     "_hint": {
         "title": "Adapt Hint",
         "altTitle": "Alt Hint title text",
-        "body": "An extension that adds a small, clickable icon to a component that displays additional information."
+        "body": "An extension that adds a small, clickable icon to a component that displays additional information.",
+        "_button": {
+            "_iconClass": "icon-question",
+            "_alignIconRight": true,
+            "text": "Hint",
+            "ariaLabel": ""
+        }
+    }
+
+    // add to globals in course.json
+    "_globals": {
+        "_hint": {
+            "openButtonText": "Open hint"
+        }
     }
