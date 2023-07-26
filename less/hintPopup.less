@@ -1,3 +1,6 @@
+// --------------------------------------------------
+// THEME
+// --------------------------------------------------
 .hint-popup {
   &__title {
     .notify-title;
@@ -9,5 +12,11 @@
 
   &__body a {
     .link-text;
+    color: @notify-link;
+
+    .no-touch &:hover {
+      color: @notify-link-hover;
+      .transition(color @duration ease-in);
+    }
   }
 }
