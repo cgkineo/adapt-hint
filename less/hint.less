@@ -22,23 +22,5 @@
       .transition(background-color @duration ease-in, color @duration ease-in;);
     }
   }
-
-  // Pop up item
-  // --------------------------------------------------
-  &__item:not(:last-child) {
-    margin-bottom: @item-margin * 2;
-  }
-
-  &__item-title {
-    .item-title;
-  }
-
-  &__item-title.has-margin {
-    margin-bottom: @item-title-margin;
-  }
-
-  &__item-body a {
-    .link-text;
-  }
 }
 
