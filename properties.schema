@@ -6,8 +6,9 @@
   "globals": {
     "openButtonText": {
       "type": "string",
+      "title": "Button ARIA label",
       "required": true,
-      "default": "open hint",
+      "default": "Open hint",
       "inputType": "Text",
       "validators": [],
       "translatable": true
@@ -41,31 +42,77 @@
               "required": false,
               "legend": "Hint",
               "properties": {
-                "_items": {
-                  "type": "array",
+                "title": {
+                  "type": "string",
+                  "required": false,
+                  "default": "",
+                  "title": "Title",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true,
+                  "help": "Title displayed in the popup"
+                },
+                "altTitle": {
+                  "type": "string",
+                  "required": false,
+                  "default": "",
+                  "title": "Alternative title text",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true,
+                  "help": "Text read out by screen readers if no visual title is included in the popup",
+                },
+                "body": {
+                  "type": "string",
                   "required": true,
-                  "title": "Hint item(s)",
-                  "items": {
-                    "type": "object",
-                    "required": true,
-                    "title": "Items",
-                    "properties": {
-                      "title": {
-                        "type": "string",
-                        "required": false,
-                        "title": "Title",
-                        "inputType": "Text",
-                        "validators": [],
-                        "translatable": true
-                      },
-                      "body": {
-                        "type": "string",
-                        "required": true,
-                        "title": "Body",
-                        "inputType": "Text",
-                        "validators": [],
-                        "translatable": true
-                      }
+                  "default": "",
+                  "title": "Body",
+                  "inputType": "Text",
+                  "validators": [],
+                  "translatable": true,
+                  "help": "Body text displayed in the popup",
+                },
+                "_button": {
+                  "type": "object",
+                  "required": false,
+                  "title": "Hint button",
+                  "properties": {
+                    "_iconClass": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Icon class",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "Icon that displays on the button. Optional, use with/without text. CSS class name must be pre-defined."
+                    },
+                    "_alignIconRight": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": true,
+                      "title": "Align icon right",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Defines whether the icon is aligned to the left or right of the text."
+                    },
+                    "text": {
+                      "type": "string",
+                      "required": false,
+                      "default": "Hint",
+                      "title": "Button text",
+                      "inputType": "Text",
+                      "validators": [],
+                      "translatable": true,
+                      "help": "Text that displays on the button. Optional, use with/without an icon."
+                    },
+                    "ariaLabel": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "ARIA label",
+                      "inputType": "Text",
+                      "validators": [],
+                      "translatable": true
                     }
                   }
                 }

@@ -23,8 +23,8 @@
                   "properties": {
                     "openButtonText": {
                       "type": "string",
-                      "title": "Open button text",
-                      "default": "open hint",
+                      "title": "Button ARIA label",
+                      "default": "Open hint",
                       "_adapt": {
                         "translatable": true
                       }
