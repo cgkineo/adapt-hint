@@ -1,5 +1,5 @@
 {
-  "$anchor": "_hint-component",
+  "$anchor": "hint-component",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "$patch": {
