@@ -13,7 +13,9 @@
 
     // add to globals in course.json
     "_globals": {
-        "_hint": {
-            "openButtonText": "Open hint"
+        "_extensions": {
+            "_hint": {
+                "openButtonText": "Open hint"
+            }
         }
     }
