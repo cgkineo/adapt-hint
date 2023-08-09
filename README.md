@@ -47,8 +47,6 @@ A global **Hint** button `aria-label` can be set within the `_globals._extension
 No known limitations.
 
 ----------------------------
-**Version number:** 3.0.0<br>
-**Framework versions:** 5.5+<br>
 **Author / maintainer:**  Kineo<br>
 **Accessibility support:** WAI AA<br>
 **RTL support:** Yes<br>
