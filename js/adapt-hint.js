@@ -36,7 +36,15 @@ define([
       const data = this.model.toJSON();
       const template = Handlebars.templates.hint;
 
-      this.$el.html(template(data)).appendTo($('.' + this.model.get('_id')).find('.component__header-inner'));
+      const displayTitle = this.model.get('displayTitle');
+      const body = this.model.get('body');
+      const instruction = this.model.get('instruction');
+
+      if (displayTitle || body || instruction) {
+        this.$el.html(template(data)).appendTo($('.' + this.model.get('_id')).find('.component__header-inner'));
+      } else {
+        this.$el.html(template(data)).appendTo($('.' + this.model.get('_id')).find('.component__widget'));
+      }
 
       _.defer(this.postRender.bind(this));
     },
