@@ -2,6 +2,7 @@
   "type": "object",
   "$schema": "http://json-schema.org/draft-03/schema",
   "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
   "required": false,
   "globals": {
     "openButtonText": {
@@ -60,7 +61,7 @@
                   "inputType": "Text",
                   "validators": [],
                   "translatable": true,
-                  "help": "Text read out by screen readers if no visual title is included in the popup",
+                  "help": "Text read out by screen readers if no visual title is included in the popup"
                 },
                 "body": {
                   "type": "string",
@@ -70,7 +71,7 @@
                   "inputType": "Text",
                   "validators": [],
                   "translatable": true,
-                  "help": "Body text displayed in the popup",
+                  "help": "Body text displayed in the popup"
                 },
                 "_button": {
                   "type": "object",
