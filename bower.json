@@ -6,7 +6,7 @@
   "bugs": "https://github.com/cgkineo/adapt-hint/issues",
   "extension": "hint",
   "displayName": "Hint",
-  "description": "An extension that adds a button to any component that, when selected, displays additional information in a popup",
+  "description": "An extension that adds a small icon to any component that, when clicked, displays additional information",
   "main": "/js/adapt-hint.js",
   "keywords": [
     "adapt-plugin",

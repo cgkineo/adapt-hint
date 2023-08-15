@@ -22,6 +22,8 @@ The attributes listed below are used in *components.json* to configure **Hint**,
 
 ## Attributes
 
+>**\_isEnabled** (boolean): Turns **Hint** on and off. Acceptable values are `true` and `false`.
+
 >**title** (string): The title displayed in the popup.
 
 >**altTitle** (string): This will be read out by screen readers as an alternative title if no visual **title** is included.
@@ -36,7 +38,7 @@ The attributes listed below are used in *components.json* to configure **Hint**,
 
 >>**text** (string): The text that displays in the `button`.
 
->>**ariaLabel** (string): This will be read out by screen readers as an alternative title if no visual title is included.
+>>**ariaLabel** (string): This will be read out by screen readers as alternative text if no visual button text is included.
 
 ## Accessibility
 

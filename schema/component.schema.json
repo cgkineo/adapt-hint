@@ -13,6 +13,11 @@
           "title": "Hint",
           "default": {},
           "properties": {
+            "_isEnabled": {
+              "type": "boolean",
+              "title": "Enable Hint button",
+              "default": false
+            },
             "title": {
               "type": "string",
               "title": "Title",
@@ -69,6 +74,7 @@
                 "ariaLabel": {
                   "type": "string",
                   "title": "ARIA label",
+                  "description": "Text read out by screen readers if no visual button text is set.",
                   "default": "",
                   "_adapt": {
                     "translatable": true

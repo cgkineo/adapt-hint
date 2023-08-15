@@ -43,6 +43,13 @@
               "required": false,
               "legend": "Hint",
               "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "default": false,
+                  "title": "Is enabled",
+                  "help": "Apply hint button to component.",
+                  "inputType": "Checkbox"
+                },
                 "title": {
                   "type": "string",
                   "required": false,
@@ -113,7 +120,8 @@
                       "title": "ARIA label",
                       "inputType": "Text",
                       "validators": [],
-                      "translatable": true
+                      "translatable": true,
+                      "help": "Text read out by screen readers if no visual button text is set."
                     }
                   }
                 }

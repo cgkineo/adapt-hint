@@ -63,11 +63,12 @@ define([
   });
 
   Adapt.on('componentView:postRender', function (view) {
-    if (view.model.has('_hint')) {
-      new HintView({
-        model: view.model
-      });
-    }
+    const hint = view.model.get('_hint');
+    if (!hint || !hint._isEnabled) return;
+
+    new HintView({
+      model: view.model
+    });
   });
 
 });
