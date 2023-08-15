@@ -1,5 +1,5 @@
 {
-  "$anchor": "_hint-component",
+  "$anchor": "hint-component",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "$patch": {
@@ -13,36 +13,74 @@
           "title": "Hint",
           "default": {},
           "properties": {
-            "_items": {
-              "type": "array",
-              "title": "Hint item(s)",
-              "default": [],
-              "items": {
-                "type": "object",
-                "properties": {
-                  "title": {
-                    "type": "string",
-                    "title": "Title",
-                    "default": "",
-                    "_adapt": {
-                      "translatable": true
-                    }
-                  },
-                  "body": {
-                    "type": "string",
-                    "title": "Body",
-                    "_adapt": {
-                      "translatable": true
-                    }
+            "_isEnabled": {
+              "type": "boolean",
+              "title": "Enable Hint button",
+              "default": false
+            },
+            "title": {
+              "type": "string",
+              "title": "Title",
+              "description": "Title displayed in the popup",
+              "default": "",
+              "_adapt": {
+                "translatable": true
+              }
+            },
+            "altTitle": {
+              "type": "string",
+              "title": "Alternative title text",
+              "description": "Text read out by screen readers if no visual title is included in the popup",
+              "default": "",
+              "_adapt": {
+                "translatable": true
+              }
+            },
+            "body": {
+              "type": "string",
+              "title": "Body",
+              "description": "Body text displayed in the popup",
+              "default": "",
+              "_adapt": {
+                "translatable": true
+              },
+              "_backboneForms": "TextArea"
+            },
+            "_button": {
+              "type": "object",
+              "title": "Hint button",
+              "properties": {
+                "_iconClass": {
+                  "type": "string",
+                  "title": "Icon class",
+                  "description": "Icon that displays on the button. Optional, use with/without text. CSS class name must be pre-defined.",
+                  "default": "icon-question"
+                },
+                "_alignIconRight": {
+                  "type": "boolean",
+                  "title": "Align icon right",
+                  "description": "Defines whether the icon is aligned to the left or right of the text.",
+                  "default": true
+                },
+                "text": {
+                  "type": "string",
+                  "title": "Button text",
+                  "description": "Text that displays on the button. Optional, use with/without an icon.",
+                  "default": "Hint",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "ariaLabel": {
+                  "type": "string",
+                  "title": "ARIA label",
+                  "description": "Text read out by screen readers if no visual button text is set.",
+                  "default": "",
+                  "_adapt": {
+                    "translatable": true
                   }
                 }
               }
-            },
-            "_isNotifyPopup": {
-              "type": "boolean",
-              "title": "Use Notify popup?",
-              "description": "If enabled, hint popup will display as Adapt Notify popup. Recommended for optimum accessibility support.",
-              "default": false
             }
           }
         }

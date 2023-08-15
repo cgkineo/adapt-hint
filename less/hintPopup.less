@@ -1,17 +1,22 @@
+// --------------------------------------------------
+// THEME
+// --------------------------------------------------
 .hint-popup {
-  &__item:not(:last-child) {
-    margin-bottom: @item-margin * 2;
+  &__title {
+    .notify-title;
   }
 
-  &__item-title {
-    .item-title;
+  &__title:not(.aria-label) + &__body {
+    margin-top: @item-title-margin;
   }
 
-  &__item-title.has-margin {
-    margin-bottom: @item-title-margin;
-  }
-
-  &__item-body a {
+  &__body a {
     .link-text;
+    color: @notify-link;
+
+    .no-touch &:hover {
+      color: @notify-link-hover;
+      .transition(color @duration ease-in);
+    }
   }
 }

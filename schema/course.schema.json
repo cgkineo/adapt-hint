@@ -1,5 +1,5 @@
 {
-  "$anchor": "_hint-course",
+  "$anchor": "hint-course",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "$patch": {
@@ -23,24 +23,8 @@
                   "properties": {
                     "openButtonText": {
                       "type": "string",
-                      "title": "Open button text",
-                      "default": "open hint",
-                      "_adapt": {
-                        "translatable": true
-                      }
-                    },
-                    "closeButtonText": {
-                      "type": "string",
-                      "title": "Close button text",
-                      "default": "close hint",
-                      "_adapt": {
-                        "translatable": true
-                      }
-                    },
-                    "ariaLabelNotify": {
-                      "type": "string",
-                      "title": "Aria label notify",
-                      "default": "Hint",
+                      "title": "Button ARIA label",
+                      "default": "Open hint",
                       "_adapt": {
                         "translatable": true
                       }
