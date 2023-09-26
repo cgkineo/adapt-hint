@@ -1,5 +1,6 @@
     // add to component in component.json
     "_hint": {
+        "_isEnabled": true,
         "title": "Adapt Hint",
         "altTitle": "Alt Hint title text",
         "body": "An extension that adds a small, clickable icon to a component that displays additional information.",
