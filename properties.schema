@@ -93,7 +93,7 @@
                   "required": true,
                   "title": "Graphic",
                   "properties": {
-                    "src": {
+                    "_src": {
                       "type": "string",
                       "required": true,
                       "default": "",
