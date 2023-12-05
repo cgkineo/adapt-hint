@@ -4,6 +4,12 @@
         "title": "Adapt Hint",
         "altTitle": "Alt Hint title text",
         "body": "An extension that adds a small, clickable icon to a component that displays additional information.",
+        "_imageAlignment": "right",
+        "_graphic": {
+            "_src": "course/en/images/example.jpg",
+            "alt": "",
+            "attribution": ""
+        },
         "_button": {
             "_iconClass": "icon-question",
             "_alignIconRight": true,
