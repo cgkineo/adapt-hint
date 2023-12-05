@@ -46,6 +46,57 @@
               },
               "_backboneForms": "TextArea"
             },
+            "_imageAlignment": {
+              "type": "string",
+              "title": "Image alignment",
+              "description": "Defines the alignment of the pop up image. Left: Image aligned to the left of the text area. Top: Image aligned above the text area. Right: Image aligned to the right of the text area. Bottom: Image aligned below the text area. The default alignment is `right`.",
+              "default": "right",
+              "enum": [
+                "left",
+                "top",
+                "right",
+                "bottom"
+              ],
+              "_backboneForms": "Select"
+            },
+            "_graphic": {
+              "type": "object",
+              "title": "Graphic",
+              "default": {},
+              "required": [
+                "src"
+              ],
+              "properties": {
+                "src": {
+                  "type": "string",
+                  "isObjectId": true,
+                  "title": "Source",
+                  "description": "Image displayed in the popup",
+                  "_backboneForms": {
+                    "type": "Asset",
+                    "media": "image"
+                  }
+                },
+                "alt": {
+                  "type": "string",
+                  "title": "Alternative text",
+                  "description": "A description of the image; required when it has meaning that must be conveyed to the learner. For 'decorative' images, leave this blank",
+                  "default": "",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "attribution": {
+                  "type": "string",
+                  "title": "Attribution",
+                  "description": "Text to be displayed as an attribution for the image",
+                  "default": "",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                }
+              }
+            },
             "_button": {
               "type": "object",
               "title": "Hint button",
