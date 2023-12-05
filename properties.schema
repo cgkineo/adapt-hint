@@ -80,6 +80,48 @@
                   "translatable": true,
                   "help": "Body text displayed in the popup"
                 },
+                "_imageAlignment": {
+                  "type": "string",
+                  "required": false,
+                  "default": "right",
+                  "inputType": {"type":"Select", "options":["left","top","right","bottom"]},
+                  "title": "Image alignment",
+                  "help": "Defines the alignment of the pop up image. Left: Image aligned to the left of the text area. Top: Image aligned above the text area. Right: Image aligned to the right of the text area. Bottom: Image aligned below the text area. The default alignment is `right`."
+                },
+                "_graphic": {
+                  "type": "object",
+                  "required": true,
+                  "title": "Graphic",
+                  "properties": {
+                    "src": {
+                      "type": "string",
+                      "required": true,
+                      "default": "",
+                      "inputType": "Asset:image",
+                      "validators": ["required"],
+                      "help": "Image displayed in the popup"
+                    },
+                    "alt": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Alternative text",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "A description of the image; required when it has meaning that must be conveyed to the learner. For 'decorative' images, leave this blank.",
+                      "translatable": true
+                    },
+                    "attribution": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "inputType": "Text",
+                      "validators": [],
+                      "help": "Text to be displayed as an attribution for the image",
+                      "translatable": true
+                    }
+                  }
+                },
                 "_button": {
                   "type": "object",
                   "required": false,
