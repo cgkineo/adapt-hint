@@ -64,10 +64,10 @@
               "title": "Graphic",
               "default": {},
               "required": [
-                "src"
+                "_src"
               ],
               "properties": {
-                "src": {
+                "_src": {
                   "type": "string",
                   "isObjectId": true,
                   "title": "Source",
