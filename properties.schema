@@ -95,7 +95,7 @@
                   "properties": {
                     "_src": {
                       "type": "string",
-                      "required": true,
+                      "required": false,
                       "default": "",
                       "inputType": "Asset:image",
                       "validators": ["required"],
