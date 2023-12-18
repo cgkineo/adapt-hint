@@ -30,6 +30,21 @@ The attributes listed below are used in *components.json* to configure **Hint**,
 
 >**body** (string): The body text displayed in the popup.
 
+>**\_imageAlignment** (string):
+Defines the alignment of the popup image. Left: Image aligned to the left of the text area. Top: Image aligned above the text area. Right: Image aligned to the right of the text area. Bottom: Image aligned below the text area. The default alignment is `right`.
+
+>**\_graphic** (object):
+The image displayed in the popup. It contains the following settings:
+
+>>**\_src** (string):
+File name (including path) of the image. Path should be relative to the `src` folder (e.g. `"course/en/images/origami-menu-two.jpg"`).
+
+>>**alt** (string):
+The alternative text for this image. Assign [alt text](https://github.com/adaptlearning/adapt_framework/wiki/Providing-good-alt-text) to images that convey course content only.
+
+>>**attribution** (string):
+Optional text to be displayed as an [attribution](https://wiki.creativecommons.org/Best_practices_for_attribution). By default it is displayed below the image. Adjust positioning by modifying CSS. Text can contain HTML tags, e.g., `Copyright © 2015 by <b>Lukasz 'Severiaan' Grela</b>`.
+
 >**\_button** (object): The **Hint** button contains values for **\_iconClass**, **\_alignIconRight**, **text** and **ariaLabel**.
 
 >>**\_iconClass** (string): CSS class name to be applied to the `button` icon. The class must be predefined in one of the Less files with the corresponding icon added as part of a font. See list of available [_vanilla_ icons](https://github.com/adaptlearning/adapt-contrib-vanilla/wiki/Icons) to choose from. Default is `icon-question`.
