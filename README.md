@@ -36,7 +36,7 @@ Defines the alignment of the popup image. Left: Image aligned to the left of the
 >**\_graphic** (object):
 The image displayed in the popup. It contains the following settings:
 
->>**_src** (string):
+>>**\_src** (string):
 File name (including path) of the image. Path should be relative to the `src` folder (e.g. `"course/en/images/origami-menu-two.jpg"`).
 
 >>**alt** (string):
