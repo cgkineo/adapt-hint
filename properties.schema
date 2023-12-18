@@ -90,7 +90,7 @@
                 },
                 "_graphic": {
                   "type": "object",
-                  "required": true,
+                  "required": false,
                   "title": "Graphic",
                   "properties": {
                     "_src": {
@@ -98,7 +98,6 @@
                       "required": false,
                       "default": "",
                       "inputType": "Asset:image",
-                      "validators": ["required"],
                       "help": "Image displayed in the popup"
                     },
                     "alt": {
