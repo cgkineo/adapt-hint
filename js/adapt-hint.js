@@ -3,12 +3,12 @@ import HintView from './HintView';
 
 class Hint extends Backbone.Controller {
   initialize() {
-    this.listenTo(Adapt, 'componentView:postRender', this.initHint);
+    this.listenTo(Adapt, 'componentView:postRender', this.onComponentPostRender);
   }
 
-  initHint(view) {
+  onComponentPostRender(view) {
     const hint = view.model.get('_hint');
-    if (!hint || !hint._isEnabled) return;
+    if (!hint?._isEnabled) return;
 
     new HintView({
       model: view.model
