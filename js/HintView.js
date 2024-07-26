@@ -6,6 +6,12 @@ import notify from 'core/js/notify';
 
 export default class HintView extends Backbone.View {
 
+  events() {
+    return {
+      'click .js-hint-btn-popup': 'onHintPopupClicked'
+    };
+  }
+
   className() {
     return 'hint';
   }
@@ -19,9 +25,7 @@ export default class HintView extends Backbone.View {
 
   setUpParentElement() {
     this.$parentEl = $(`[data-adapt-id=${this.model.get('_id')}]`);
-    this.$parentEl
-      .on('click.js-hint-btn-popup', this.onHintPopupClicked)
-      .addClass('has-hint');
+    this.$parentEl.addClass('has-hint');
   }
 
   get $targetElement() {
