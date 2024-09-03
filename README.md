@@ -8,7 +8,7 @@ The extension appends a button to any component. On selecting the button, additi
 
 The intended use is a 'hint' for question components, providing additional content to aid answering a question. Or, to provide 'more info' for presentation components. Whether to declutter text heavy content, or, group content of a particular type/theme.
 
-The hint button is displayed between the component display text (header) and the interaction (widget). For components without display text, the button is displayed after the interaction (widget).
+For components with a header (i.e. the display title, body and instruction fields) the button is displayed after the header. For components without a header the button is displayed after the widget.
 
 ## Installation
 
