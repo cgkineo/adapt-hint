@@ -6,9 +6,9 @@
 
 The extension appends a button to any component. On selecting the button, additional content is displayed in a popup. The button can contain either text and/or icon and can be configured per component.
 
-The intended use is a 'hint' for question components, providing additional content to aid answering a question. Or, to provide 'more info' for presentation components. Whether to declutter text heavy content, or, group content of a particular type/theme.
+The intended use is a 'hint' for question components, providing additional content to aid answering a question. However, **Hint** can also be used to provide 'more info' for presentation components, whether to declutter text heavy content or to group content of a particular type/theme.
 
-For components with a header (i.e. the display title, body and instruction fields) the button is displayed after the header. For components without a header the button is displayed after the widget.
+For components with a header (i.e. the display title, body and instruction fields), the button is displayed after the header. For components without a header, the button is displayed after the widget.
 
 ## Installation
 
@@ -67,4 +67,4 @@ No known limitations.
 **Author / maintainer:**  Kineo<br>
 **Accessibility support:** WAI AA<br>
 **RTL support:** Yes<br>
-**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge, IE11, Safari 14 for macOS/iOS/iPadOS, Opera<br>
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge, Safari for macOS/iOS/iPadOS, Opera<br>
