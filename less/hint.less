@@ -39,13 +39,28 @@
   }
 
   &__btn {
-    background-color: @item-color;
-    color: @item-color-inverted;
+    & when (@item-ui-color-style = filled) {
+      .item-ui-color;
+  
+      .no-touch &:hover {
+        .item-ui-color-hover;
+      }
 
-    .no-touch &:hover {
-      background-color: @item-color-hover;
-      color: @item-color-inverted-hover;
-      .transition(background-color @duration ease-in, color @duration ease-in;);
+      html:not(.a11y-disable-focusoutline) &:focus-visible {
+        .item-ui-color-focus;
+      }
+    }
+
+    & when (@item-ui-color-style = outline) {
+      .item-ui-color-outline;
+  
+      .no-touch &:hover {
+        .item-ui-color-outline-hover;
+      }
+
+      html:not(.a11y-disable-focusoutline) &:focus-visible {
+        .item-ui-color-outline-focus;
+      }
     }
   }
 }
