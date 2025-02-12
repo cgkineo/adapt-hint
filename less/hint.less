@@ -41,7 +41,8 @@
     }
   }
 
-  &__btn {
+  &__btn.btn-icon,
+  &__btn.btn-text {
     // apply legacy styles if Vanilla button styles aren't supported
     & when (@item-ui-color-style = none) {
       background-color: @item-color;
