@@ -14,6 +14,9 @@
 // --------------------------------------------------
 // THEME
 // --------------------------------------------------
+// @item-ui-color-style fallback if Vanilla button styles aren't supported
+@item-ui-color-style: none;
+
 .hint {
 
   // buttons with text and icon (left aligned icon as default)
@@ -39,6 +42,18 @@
   }
 
   &__btn {
+    // apply legacy styles if Vanilla button styles aren't supported
+    & when (@item-ui-color-style = none) {
+      background-color: @item-color;
+      color: @item-color-inverted;
+  
+      .no-touch &:hover {
+        background-color: @item-color-hover;
+        color: @item-color-inverted-hover;
+        .transition(background-color @duration ease-in, color @duration ease-in;);
+      }
+    }
+    
     & when (@item-ui-color-style = filled) {
       .item-ui-color;
   
