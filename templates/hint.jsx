@@ -40,9 +40,10 @@ export default function Hint (props) {
 
         {button.text &&
         <span className='hint__btn-text'>
-          <span className='hint__btn-text-inner'>
-            {compile(button.text)}
-          </span>
+          <span
+            className='hint__btn-text-inner' 
+            dangerouslySetInnerHTML={{ __html: compile(button.text, props) }}
+          />
         </span>
         }
 
