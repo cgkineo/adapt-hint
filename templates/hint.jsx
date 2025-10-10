@@ -22,7 +22,8 @@ export default function Hint (props) {
           'js-hint-btn-popup',
           _hint._button._iconClass && 'btn-icon',
           _hint._button._alignIconRight && 'align-icon-right',
-          _hint._button.text && 'btn-text'
+          _hint._button.text && 'btn-text',
+          _hint._classes
         ])}
         aria-label={buttonAriaLabel}
       >

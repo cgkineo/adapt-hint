@@ -80,6 +80,15 @@
                   "translatable": true,
                   "help": "Body text displayed in the popup"
                 },
+                "_classes": {
+                  "type": "string",
+                  "default": "",
+                  "isSetting": true,
+                  "inputType": "Text",
+                  "validators": [ ],
+                  "title": "Classes",
+                  "help": "Used to style or manipulate the look and feel of the Hint item. These are predefined in the theme or added in Project Settings > Custom CSS/Less code."
+                },
                 "_imageAlignment": {
                   "type": "string",
                   "required": false,

@@ -30,6 +30,9 @@ The attributes listed below are used in *components.json* to configure **Hint**,
 
 >**body** (string): The body text displayed in the popup.
 
+>**\_classes** (string):
+CSS class name(s) to be applied to the `button`. The class must be predefined in one of the Less files. Separate multiple classes with a space.
+
 >**\_imageAlignment** (string):
 Defines the alignment of the popup image. Left: Image aligned to the left of the text area. Top: Image aligned above the text area. Right: Image aligned to the right of the text area. Bottom: Image aligned below the text area. The default alignment is `right`.
 
