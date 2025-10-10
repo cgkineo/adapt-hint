@@ -23,7 +23,7 @@ export default function Hint (props) {
           _hint._button._iconClass && 'btn-icon',
           _hint._button._alignIconRight && 'align-icon-right',
           _hint._button.text && 'btn-text',
-          _hint._classes
+          _hint._button._classes
         ])}
         aria-label={buttonAriaLabel}
       >
