@@ -101,7 +101,7 @@
                 "_classes": {
                   "type": "string",
                   "title": "Classes",
-                  "description": "Used to style or manipulate the look and feel of the Hint item. These are predefined in the theme or added in Project Settings > Custom CSS/Less code.",
+                  "description": "Used to style or manipulate the look and feel of the Hint button. These are predefined in the theme or added in Project Settings > Custom CSS/Less code.",
                   "default": "",
                   "_adapt": {
                     "isSetting": true

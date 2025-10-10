@@ -133,7 +133,7 @@
                       "inputType": "Text",
                       "validators": [ ],
                       "title": "Classes",
-                      "help": "Used to style or manipulate the look and feel of the Hint item. These are predefined in the theme or added in Project Settings > Custom CSS/Less code."
+                      "help": "Used to style or manipulate the look and feel of the Hint button. These are predefined in the theme or added in Project Settings > Custom CSS/Less code."
                     },
                     "_iconClass": {
                       "type": "string",
