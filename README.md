@@ -47,6 +47,9 @@ Optional text to be displayed as an [attribution](https://wiki.creativecommons.o
 
 >**\_button** (object): The **Hint** button contains values for **\_iconClass**, **\_alignIconRight**, **text** and **ariaLabel**.
 
+>>**\_classes** (string):
+CSS class name(s) to be applied to the `button`. The class must be predefined in one of the Less files. Separate multiple classes with a space.
+
 >>**\_iconClass** (string): CSS class name to be applied to the `button` icon. The class must be predefined in one of the Less files with the corresponding icon added as part of a font. See list of available [_vanilla_ icons](https://github.com/adaptlearning/adapt-contrib-vanilla/wiki/Icons) to choose from. Default is `icon-question`.
 
 >>**\_alignIconright** (boolean): Defines whether the icon is aligned to the left or right of the text (if applicable). Default is `true`, which aligns the icon to the right of the text.

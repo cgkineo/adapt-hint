@@ -11,6 +11,7 @@
             "attribution": ""
         },
         "_button": {
+            "_classes": "",
             "_iconClass": "icon-question",
             "_alignIconRight": true,
             "text": "Hint",
