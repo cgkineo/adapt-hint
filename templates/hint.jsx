@@ -7,11 +7,11 @@ export default function Hint (props) {
     _hint
   } = props;
 
-  const hintButton = _hint._button;
-  const buttonAriaLabel = hintButton.text
+  const button = _hint._button;
+  const buttonAriaLabel = button.text
     ? null
-    : hintButton.ariaLabel
-      ? hintButton.ariaLabel
+    : button.ariaLabel
+      ? button.ariaLabel
       : _globals._extensions._hint.openButtonText;
 
   return (
@@ -21,27 +21,27 @@ export default function Hint (props) {
         className={classes([
           'hint__btn',
           'js-hint-btn-popup',
-          hintButton._iconClass && 'btn-icon',
-          hintButton._alignIconRight && 'align-icon-right',
-          hintButton.text && 'btn-text',
-          hintButton._classes
+          button._iconClass && 'btn-icon',
+          button._alignIconRight && 'align-icon-right',
+          button.text && 'btn-text',
+          button._classes
         ])}
         aria-label={buttonAriaLabel}
       >
 
-        {hintButton._iconClass &&
+        {button._iconClass &&
         <span className='hint__btn-icon'>
           <span
-            className={`icon ${hintButton._iconClass}`}
+            className={`icon ${button._iconClass}`}
             aria-hidden='true'
           ></span>
         </span>
         }
 
-        {hintButton.text &&
+        {button.text &&
         <span className='hint__btn-text'>
           <span className='hint__btn-text-inner'>
-            {compile(hintButton.text)}
+            {compile(button.text)}
           </span>
         </span>
         }
